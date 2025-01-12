@@ -4,7 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        customBlue: '#263A99', // Add your custom color here
+        primaryBlue: '#394867', // Add your custom color here
+        grayLight: '#A1A1A9',
+        grayDark: '#3B3B3B',
       },
     },
   },

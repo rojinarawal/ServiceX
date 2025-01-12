@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import SignUpbG from '../../assets/images/SignUp/signupBg.png';
+import AuthHeader from '../../layouts/headers/AuthHeader';
+import SignUpBg from '../../assets/images/SignUp/signupBg.png';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -23,18 +24,21 @@ const SignUp = () => {
       alert('Passwords do not match!');
       return;
     }
-    console.log('Form Data: ', formData);
+    console.log('Form Data:', formData);
   };
 
   return (
-    <div className='h-screen flex flex-col items-center justify-center bg-gray-50'>
-      <div className='w-full max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden'>
+    <>
+      <AuthHeader />
+      <div className='flex flex-col'>
         <div className='flex flex-col md:flex-row'>
-          <div className='md:w-1/2 bg-gray-200 flex items-center justify-center'>
-            <img src={SignUpbG} alt='' />
-          </div>
+          {/* Left Side: Image */}
+          <div className='flex items-end justify-end'></div>
+
+          {/* Right Side: Form */}
           <div className='md:w-1/2 p-8'>
-            <form onSubmit={handleSubmit} className='space-y-4'>
+            <form onSubmit={handleSubmit} className='space-y-6'>
+              {/* Name Fields */}
               <div className='flex space-x-4'>
                 <input
                   type='text'
@@ -55,6 +59,8 @@ const SignUp = () => {
                   required
                 />
               </div>
+
+              {/* Email */}
               <input
                 type='email'
                 name='email'
@@ -64,6 +70,8 @@ const SignUp = () => {
                 className='w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500'
                 required
               />
+
+              {/* Phone */}
               <input
                 type='tel'
                 name='phone'
@@ -72,6 +80,8 @@ const SignUp = () => {
                 onChange={handleChange}
                 className='w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500'
               />
+
+              {/* License Number */}
               <input
                 type='text'
                 name='licenseNo'
@@ -81,6 +91,8 @@ const SignUp = () => {
                 className='w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500'
                 required
               />
+
+              {/* Password */}
               <div className='relative'>
                 <input
                   type='password'
@@ -95,6 +107,8 @@ const SignUp = () => {
                   &#x1F441;
                 </span>
               </div>
+
+              {/* Confirm Password */}
               <div className='relative'>
                 <input
                   type='password'
@@ -109,9 +123,11 @@ const SignUp = () => {
                   &#x1F441;
                 </span>
               </div>
+
+              {/* Submit Button */}
               <button
                 type='submit'
-                className='w-full p-3 bg-customBlue text-white rounded hover:bg-blue-600 transition'
+                className='w-full p-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition'
               >
                 Create Account
               </button>
@@ -119,7 +135,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
